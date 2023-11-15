@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5em;
+  }
+  
+  .search-bar {
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 350px;
+  }
+  
+  .ask-question {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    border-radius: 10px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .user-block {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-info img {
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .user-info a {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .user-auth a {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .registration-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 30%;
+    padding: 5px;
+    margin-top: 40px;
+   margin-left: 900px;
+  }
+  
+  .info-block {
+    margin-bottom: 20px;
+  }
+  
+  .info-block h2 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  .tags, .users {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tags a {
+    text-decoration: none;
+    color: #ddd;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .users a {
+
+  }

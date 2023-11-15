@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ваш логотип</div>
+        <input type="search" class="search-bar" placeholder="Поиск">
+        <button class="ask-question" onclick="openQuestionForm()">Задать вопрос</button>
+    
+        <div class="user-block">
+          <!-- Для авторизованных пользователей -->
+          <!-- <div class="user-info">
+            <img src="avatar.jpg" alt="Аватар">
+            <span class="username">Ник пользователя</span>
+          </div> -->
+          
+          <!-- Для неавторизованных пользователей -->
+          <div class="user-auth">
+            <a href="#">Войти</a>
+            <a href="#">Регистрация</a>
+          </div>
+        </div>
+      </header>
+    
+    <aside class="sidebar">
+        <div class="info-block">
+          <h2>Популярные тэги</h2>
+          <ul class="tags">
+            <li style="margin-top: 10px;"><a href="#">Тэг1</a></li>
+            <li style="margin-top: 10px;"><a href="#">Тэг2</a></li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <h2>Лучшие пользователи</h2>
+          <ol class="users">
+            <li><a href="#">Пользователь1</a></li>
+            <li><a href="#">Пользователь2</a></li>
+          </ol>
+        </div>
+      </aside>
+</body>
+</html>
