@@ -1,113 +1,28 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 1.5em;
-  }
-  
-  .search-bar {
-    padding: 5px;
-    margin-left: 10px;
-    border-radius: 10px;
-    width: 350px;
-  }
-  
-  .ask-question {
-    padding: 8px 15px;
-    background-color: #4CAF50;
-    border-radius: 10px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .user-block {
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-info img {
-    border-radius: 50%;
-    margin-right: 5px;
-  }
-  
-  .user-info a {
-    margin-left: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .user-auth a {
-    margin-left: 10px;
-    color: #fff;
-    text-decoration: none;
-  }
+.login-container {
+  max-width: 700px;
+  margin: 5px 150px;
+  padding: 40px;
+}
 
-  .login-container {
-    max-width: 700px;
-    margin: 5px 150px;
-    padding: 40px;
-  }
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.login-container button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
   
-  .login-container label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .login-container input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-  }
-  
-  .login-container button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .login-container button:hover {
-    background-color: #45a049;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .sidebar {
-    width: 30%;
-    margin-top: 30px;
-  }
-  
-  .info-block {
-    margin-bottom: 20px;
-  }
-  
-  .info-block h2 {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-  }
-  
-  .tags, .users {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .tags a, .users a {
-    text-decoration: none;
-    color: #333;
-  }
+.login-container button:hover {
+  background-color: #45a049;
+}
