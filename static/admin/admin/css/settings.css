@@ -1,0 +1,79 @@
+.profile-container {
+  display: block;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.profile-info {
+  max-width: 400px;
+}
+
+.profile-info h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-right: 250px;
+}
+
+.profile-info table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  border: 1px solid #ddd; /* Добавляем рамку вокруг таблицы */
+}
+
+.profile-info th, .profile-info td {
+  border: none;
+  padding: 8px;
+  text-align: left;
+}
+
+.profile-info th {
+  background-color: #333;
+  color: #fff;
+}
+
+.profile-info td:first-child {
+  text-align: right;
+  background-color: #555;
+  color: #fff;
+}
+
+.profile-avatar {
+  max-width: 200px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.profile-avatar img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.profile-avatar form {
+  margin-top: 10px;
+}
+
+.profile-avatar label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.profile-avatar input[type="file"] {
+  margin-bottom: 10px;
+}
+
+.profile-avatar button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-avatar button:hover {
+  background-color: #45a049;
+}

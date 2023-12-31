@@ -1,0 +1,23 @@
+.question {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.question h3 {
+  margin-top: 0;
+}
+
+.metadata {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+}
+
+.date, .rating {
+  margin-right: 10px;
+}
+.like{
+  margin-left: 220px;
+}

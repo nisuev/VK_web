@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/styles.css">
+  {% load static %}
+  <link rel="stylesheet" href="{%static '/css/styles.css' %}">
   <title>Document</title>
 </head>
 <body>
@@ -28,30 +29,31 @@
   </header>
     
   <main>
-    <div class="container">
-      <div class="question-list">
-        <main>
+<!--    <div class="container">-->
+<!--      <div class="question-list">-->
+<!--        <main>-->
 
-        </main>
-      </div>
+<!--        </main>-->
+<!--      </div>-->
 
-      <aside class="sidebar">
-        <div class="info-block">
-          <h2>Популярные тэги</h2>
-          <ul class="tags">
-            <span style="margin-top: 10px;"><a href="#">Тэг1</a></span>
-            <span style="margin-top: 10px;"><a href="#">Тэг2</a></span>
-          </ul>
-        </div>
+<!--      <aside class="sidebar">-->
+<!--        <div class="info-block">-->
+<!--          <h2>Популярные тэги</h2>-->
+<!--          <ul class="tags">-->
+<!--            <span style="margin-top: 10px;"><a href="#">Тэг1</a></span>-->
+<!--            <span style="margin-top: 10px;"><a href="#">Тэг2</a></span>-->
+<!--          </ul>-->
+<!--        </div>-->
 
-        <div class="info-block">
-          <h2>Лучшие пользователи</h2>
-          <ol class="users">
-            <li style="margin-top: 10px;"><a href="#">Пользователь1</a></li>
-            <li style="margin-top: 10px;"><a href="#">Пользователь2</a></li>
-          </ol>
-        </div>
-      </aside>
+<!--        <div class="info-block">-->
+<!--          <h2>Лучшие пользователи</h2>-->
+<!--          <ol class="users">-->
+<!--            <li style="margin-top: 10px;"><a href="#">Пользователь1</a></li>-->
+<!--            <li style="margin-top: 10px;"><a href="#">Пользователь2</a></li>-->
+<!--          </ol>-->
+<!--        </div>-->
+<!--      </aside>-->
+    {% block content %}{% endblock content %}
   </main>
 </body>
 </html>
