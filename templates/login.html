@@ -1,64 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../static/css/login.css">
-  <link rel="stylesheet" href="../static/css/styles.css">
-  <title>ask_nisu</title>
-</head>
-<body>
-  <header>
-    <div class="logo">AskNisu</div>
-    <input type="search" class="search-bar" placeholder="Поиск">
-    <button class="ask-question" onclick="openQuestionForm()">Задать вопрос</button>
-
-    <div class="user-block">
-      <!-- Для авторизованных пользователей -->
-      <!-- <div class="user-info">
-        <img src="avatar.jpg" alt="Аватар">
-        <span class="username">Ник пользователя</span>
-        <a href="#">Выход</a>
-        <a href="#">Профиль</a>
-      </div> -->
-      
-      <!-- Для неавторизованных пользователей -->
-      <div class="user-auth">
-
-      </div>
-    </div>
-  </header>
-  <div class="container"> 
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
     <div class="login-container">
-      <form method="post" action="#">
-        <label for="username">Логин:</label>
-        <input type="text" name="username" required>
+      {% if error %}
+      <p style="color:red">{{error}}</p>
+      {% endif %}
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{loginForm.as_p}}
 
-        <label for="password">Пароль:</label>
-        <input type="password" name="password" required>
-
+        <input type="hidden" name="continueUrl" value="{{continueUrl}}">
         <button type="submit">Войти</button>
       </form>
     </div>
-    
-    <aside class="sidebar">
-      <div class="info-block">
-        <h2>Популярные тэги</h2>
-        <ul class="tags">
-          <span><a href="#">Тэг1</a></span>
-          <span><a href="#">Тэг2</a></span>
-  
-        </ul>
-      </div>
-  
-      <div class="info-block">
-        <h2>Лучшие пользователи</h2>
-        <ol class="users">
-          <li><a href="#">Пользователь1</a></li>
-          <li><a href="#">Пользователь2</a></li>
-        </ol>
-      </div>
-    </aside>
+
   </div>
-</body>
-</html>
+{% endblock content %}

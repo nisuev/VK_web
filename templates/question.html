@@ -7,11 +7,106 @@
         <p>{{question.text}}</p>
         <div class="metadata">
           <span class="date">Дата добавления</span>
-          <span class="rating">Рейтинг: {{question.rate}}</span>
-          <button class="like">👍</button>
-          <button class="dislike">👎</button>
+          <code id="csrf-code" > {% csrf_token %}</code>
+          <span  class="rating">Рейтинг: <i id="rating-count" >{{question.rate}}</i></span>
+          {% if is_show_like %}
+          <button id="like-btn" class="like">👍</button>
+          {% endif %}
         </div>
       </li>
     </ul>
   </div>
+
+<form method="POST" action="{% url 'question' id=question.pk %}" >
+  {% csrf_token %}
+  {{AddQuestionForm.as_p}}
+  <button type="submit">Ответить</button>
+</form>
+
+{% for answer in answers %}
+<div style="    display: grid;
+    grid-template-columns: 1fr 1fr;" id="answer-{{answer.pk}}">
+     {% load static %}
+    {% if question.author == user  and not answer.is_right %}
+      <button answer-id="{{answer.pk}}" style="width:60px" class="set_right_answer"><img answer-id="{{answer.pk}}" width="30px" src="{% static 'img/galka_is.png' %}"></button>
+    {% endif%}
+
+   {% if answer.is_right %}
+  <img width="30px" src="{% static 'img/galka.png' %}">
+  {% endif %}
+  <p>{{answer.text}}</p>
+
+  <span>Создан: {{answer.create_date}} </span>
+</div>
+{% endfor %}
+<script>
+function send_like() {
+    $.ajax({
+        url : "/like/", // the endpoint
+        type : "POST", // http method
+        data : { question : {{question.pk}}, csrfmiddlewaretoken: $('#csrf-code').children().first().val() }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+
+            if(json['error']){
+              console.log(json['error_text'])
+            }
+            else{
+             console.log("success"); // another sanity check
+                 $('#like-btn').hide(); // remove the value from the input
+                 $('#rating-count').text(json['new_like_count']);
+            }
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+};
+
+$('#like-btn').on('click', function(event){
+    event.preventDefault();
+    send_like();
+});
+
+function set_right(answer_id) {
+    $.ajax({
+        url : "/set_right/", // the endpoint
+        type : "POST", // http method
+        data : { question : {{question.pk}}, answer: answer_id, csrfmiddlewaretoken: $('#csrf-code').children().first().val() }, // data sent with the post request
+
+        // handle a successful response
+        success : function(json) {
+            console.log(json); // log the returned json to the console
+
+            if(json['error']){
+              console.log(json['error_text'])
+            }
+            else{
+             console.log("success"); // another sanity check
+              $('.set_right_answer').hide(); // remove the value from the input
+
+            }
+        },
+
+        // handle a non-successful response
+        error : function(xhr,errmsg,err) {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        }
+    });
+};
+
+$('.set_right_answer').on('click', function(event){
+    event.preventDefault();
+    console.log(event)
+    set_right(event.target.attributes['answer-id'].value);
+});
+
+
+</script>
+
 {% endblock content %}

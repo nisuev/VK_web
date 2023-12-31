@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+    <div class="login-container">
+
+      <form method="post" action="{% url 'ask' %}">
+        {% csrf_token %}
+        {{AddQuestionForm.as_p}}
+
+        <button type="submit">Создать вопрос</button>
+      </form>
+    </div>
+
+  </div>
+{% endblock content %}

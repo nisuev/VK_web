@@ -57,8 +57,7 @@
               <div class="metadata">
                 <span class="date">Дата добавления: {{question.date}}</span>
                 <span class="rating">Рейтинг: {{question.rate}}</span>
-                <button class="like">👍</button>
-                <button class="dislike">👎</button>
+
               </div>
             </li>
           </ul>
@@ -67,7 +66,7 @@
           {% if questions.number == i %}
             <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
           {% else %}
-            <li><a href="?page={{ i }}">{{ i }}</a></li>
+            <li id="page-{{i}}"><a href="?page={{ i }}">{{ i }}</a></li>
           {% endif %}
         {% endfor %}
       </div>

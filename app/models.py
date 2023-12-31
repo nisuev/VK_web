@@ -38,6 +38,7 @@ class Question(models.Model):
 
 class Answer(models.Model):
     text = models.TextField()
+    is_right = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     question = models.ForeignKey(
         'Question',

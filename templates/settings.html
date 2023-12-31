@@ -1,34 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/settings.css">
-    <link rel="stylesheet" href="../static/css/styles.css">
-    <title>ask_nisu</title>
-</head>
-<body>
-  <header>
-    <div class="logo">AskNisu</div>
-    <input type="search" class="search-bar" placeholder="Поиск">
-    <button class="ask-question" onclick="openQuestionForm()">Задать вопрос</button>
-
-    <div class="user-block">
-      <!-- Для авторизованных пользователей -->
-      <!-- <div class="user-info">
-        <img src="avatar.jpg" alt="Аватар">
-        <span class="username">Ник пользователя</span>
-
-      </div> -->
-      
-      <!-- Для неавторизованных пользователей -->
-      <div class="user-auth">
-        <a href="#">Войти</a>
-        <a href="#">Регистрация</a>
-      </div>
-    </div>
-  </header>
-     
+{% extends "base.html" %}
+{% block content %}
   <div class="container">    
     <div class="profile-container">
       <div class="profile-info">
@@ -36,24 +7,24 @@
         <table>
           <tr>
               <td><strong>Логин:</strong></td>
-              <td>userlogin</td>
+              <td>{{user.username}}</td>
           </tr>
           <tr>
               <td><strong>Email:</strong></td>
-              <td>user@example.com</td>
+              <td>{{user.email}}</td>
           </tr>
           <tr>
-              <td><strong>Никнейм:</strong></td>
-              <td>Nickname</td>
+              <td><strong>Возраст:</strong></td>
+              <td>{{profile.age}}</td>
           </tr>
         </table>
       </div>
       <div class="profile-avatar">
-        <img src="avatar.jpg" alt="Аватар">
-        <form method="post" enctype="multipart/form-data" action="#">
-          <label for="avatar">Поменять аватарку:</label>
-          <input type="file" name="avatar" accept="image/*">
-          <button type="submit">Сохранить</button>
+        <img src="{{ profile.avatar.url }}" alt="Аватар">
+        <form method="post" enctype="multipart/form-data" action="{% url 'settings' %}">
+            {{EditProfileForm.as_p}}
+            {% csrf_token %}
+            <button type="submit">Сохранить</button>
         </form>
       </div>
     </div>
@@ -76,5 +47,4 @@
       </div>
     </aside>
   </div>
-</body>
-</html>
+{% endblock content %}
