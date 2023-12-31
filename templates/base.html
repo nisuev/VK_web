@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <div class="logo">Ваш логотип</div>
+    <a style="color:white" href="{% url 'index' %}"><div class="logo">Ваш логотип</div></a>
     <input type="search" class="search-bar" placeholder="Поиск">
     <button class="ask-question" onclick="openQuestionForm()">Задать вопрос</button>
 
@@ -22,8 +22,8 @@
       
       <!-- Для неавторизованных пользователей -->
       <div class="user-auth">
-        <a href="#">Войти</a>
-        <a href="#">Регистрация</a>
+        <a href="{% url 'login' %}">Войти</a>
+        <a href="{% url 'signup' %}">Регистрация</a>
       </div>
     </div>
   </header>

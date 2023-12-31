@@ -75,8 +75,9 @@
         <div class="info-block">
           <h2>Популярные тэги</h2>
           <ul class="tags">
-            <span style="margin-top: 10px;"><a href="#">Тэг1</a></span>
-            <span style="margin-top: 10px;"><a href="#">Тэг2</a></span>
+             {% for tag in tags %}
+            <span style="margin-top: 10px;"><a href="{% url 'tag' tag.id %}">{{tag.title}}</a></span>
+            {% endfor %}
           </ul>
         </div>
 
